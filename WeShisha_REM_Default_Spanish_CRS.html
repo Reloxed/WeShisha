@@ -1,0 +1,899 @@
+<html xmlns:rem="http://rem.lsi.us.es">
+<head>
+<title>Proyecto WeShisha</title>
+<style type="text/css">
+<!--
+            body {
+                font-family: arial,verdana;
+                font-size: 10pt;
+                text-align: justify
+            }
+
+            h1 { font-size: 14pt }
+            h2 { font-size: 13pt }
+            h3 { font-size: 12pt }
+            h4 { font-size: 11pt }
+            h5 { font-size: 10pt }
+            h6 { font-size: 10pt }
+
+            h1.cover { font-size: 20pt }
+
+            tr { font-size: 10pt }
+
+            table { border: black solid; }
+            table.TOC { border: none; }
+            ul {
+                margin-top:    0pt;
+                margin-bottom: 0pt;
+                margin-left:   12pt
+            }
+        -->
+</style>
+</head>
+<body>
+<center>
+<h3>Proyecto WeShisha</h3>
+<p />
+<h1 class="cover">Documento de Requisitos del Sistema</h1>
+<p />
+<h3>Versión 1.0</h3>
+<h3>Fecha 23/11/2017</h3>
+<p />
+<h3>Preparado para:</h3>
+<a href="#ORG-0001" title="WeShisha">
+<p>
+WeShisha</p>
+</a>
+<p />
+<h3>Preparado por:</h3>
+<a href="#ORG-0002" title="Grupo de proyecto">
+<p>
+Grupo de proyecto</p>
+</a>
+<p />
+</center>
+<hr size="4" />
+<p />
+<h1 align="left">Índice</h1>
+<p />
+<table border="0" width="100%" class="TOC">
+<tr>
+<th align="left" valign="top">1 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0004">
+Introducción</a>
+</th>
+</tr>
+<tr><td />
+<td align="left" valign="top">1.1 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0005">
+Alcance</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">1.2 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0006">
+Objetivos</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">1.3 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0001">
+Participantes en el proyecto</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">1.3.1 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0002">
+Organizaciones</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">1.3.2 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0003">
+Participantes</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">2 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0007">
+Información sobre el dominio del problema</a>
+</th>
+</tr>
+<tr><td />
+<td align="left" valign="top">2.1 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0008">
+Introducción al dominio del problema</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">2.2 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0009">
+Glosario de términos del dominio del problema</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">3 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0010">
+Descripción de la situación actual</a>
+</th>
+</tr>
+<tr><td />
+<td align="left" valign="top">3.1 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0011">
+Pros y contras de la situación actual</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">3.1.1 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0012">
+Fortalezas de la situación actual</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">3.1.2 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0013">
+Debilidades de la situación actual</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">3.2 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0014">
+Modelos de procesos de negocio actuales</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">3.2.1 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0015">
+Descripción de actores de negocio actuales</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">3.3 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0016">
+Entorno tecnológico actual</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">3.3.1 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0017">
+Decripción del entorno de hardware actual</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">3.3.2 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0018">
+Decripción del entorno de software actual</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">4 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0019">
+Necesidades de negocio</a>
+</th>
+</tr>
+<tr><td />
+<td align="left" valign="top">4.1 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0020">
+Objetivos de negocio</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">4.2 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0021">
+Modelo de procesos de negocio a implantar</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">4.2.1 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0022">
+Descripción de los actores de negocio a implantar</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">4.2.2 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0023">
+Descripción de los procesos de negocio a implantar</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">A </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0024">
+Acta de reuniones</a>
+</th>
+</tr>
+</table>
+<p />
+<hr size="4" />
+<p />
+<a name="PRG-0001" />
+<p>La portada viene en el Word adjunto</p>
+<a name="PRG-0002" />
+<p>La lista de control de cambios irá en un documento Word aparte.</p>
+<a name="SEC-0004" />
+<h1 align="left">1 
+Introducción</h1><a name="SEC-0005" />
+<h2 align="left">1.1 
+Alcance</h2><a name="PRG-0003" />
+<p>WeShisha ofrece, a particulares que lo soliciten, sus servicios de venta, reparación y <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a> de cachimbas por Dos Hermanas.
+<br />
+<br />Es una empresa de reciente creación, por lo que no dispone apenas de recursos excepto los inventarios tanto de la propia empresa como de los productos a vender. Su principal servicio es el de un <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a> de cachimbas, el cual se encarga de ofrecer en cualquier tipo de <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a> (bodas, reuniones de amigos, etc.) un servicio de cachimbas en el que habrá empleados sirviendo a los usuarios que han contratado este servicio, poniéndolas a su disposición.
+<br />
+<br />Para ayudar a esta empresa, nos encargaremos de realizar una aplicación para ayudar a los administradores de esta empresa a realizar ciertas funciones de manera organizada y eficiente.</p>
+<a name="SEC-0006" />
+<h2 align="left">1.2 
+Objetivos</h2><a name="PRG-0004" />
+<p>Este negocio busca progresar y crecer tanto como empresa como negocio ya que es muy reciente.
+<br />
+<br />Para ello creen necesario un sistema de información el cual les permita a los clientes obtener información sobre los servicios y productos ofrecidos por la empresa y organizar el acceso de los distintos usuarios, ya sean clientes o administradores, de manera que todos los servicios queden informatizados.
+<br />
+<br />El objetivo principal es facilitar enormemente la labor de los propietarios y empleados de la empresa.</p>
+<a name="SEC-0001" />
+<h2 align="left">1.3 
+Participantes en el proyecto</h2><a name="SEC-0002" />
+<h3 align="left">1.3.1 
+Organizaciones</h3><a name="ORG-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Organización</th>
+<th align="left" valign="top" width="100%">
+WeShisha</th>
+</tr>
+<tr>
+<th align="left" valign="top">Dirección</th>
+<td align="left" valign="top" colspan="1">Dos Hermanas, 41702</td>
+</tr>
+<tr>
+<th align="left" valign="top">Teléfono</th>
+<td align="left" valign="top" colspan="1">656582950</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fax</th>
+<td align="left" valign="top" colspan="1">-</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="ORG-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Organización</th>
+<th align="left" valign="top" width="100%">
+Grupo de proyecto</th>
+</tr>
+<tr>
+<th align="left" valign="top">Dirección</th>
+<td align="left" valign="top" colspan="1">-</td>
+</tr>
+<tr>
+<th align="left" valign="top">Teléfono</th>
+<td align="left" valign="top" colspan="1">-</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fax</th>
+<td align="left" valign="top" colspan="1">-</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0003" />
+<h3 align="left">1.3.2 
+Participantes</h3><a name="STK-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Martínez Figueroa, Pablo</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Grupo de proyecto</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Ingeniero de requisitos</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="STK-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Montaño Aguilera, Antonio Manuel</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Grupo de proyecto</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Ingeniero de requisitos</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="STK-0003" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Patón Gutiérrez, Miguel</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Grupo de proyecto</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Ingeniero de requisitos</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="STK-0004" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Begines Ruiz, José Manuel</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0001">
+WeShisha</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Propietario</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="STK-0005" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Begines Ruiz, Belén</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0001">
+WeShisha</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Propietario</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0007" />
+<h1 align="left">2 
+Información sobre el dominio del problema</h1><a name="SEC-0008" />
+<h2 align="left">2.1 
+Introducción al dominio del problema</h2><a name="PRG-0005" />
+<p>WeShisha es una empresa que ofrece a los clientes todo tipo de productos relacionados con cachimbas, ya sean las propias cachimbas o accesorios de éstas, tales como cazoletas, mangueras, etc.. También ofrece un servicio de reparación de cachimbas, y un <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a> que se puede contratar para cualquier tipo de <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>, ya sea una boda, una reunión familiar, un cumpleaños, etc..
+<br />
+<br />Además, se proporcionará a los encargados todo tipo de información necesaria para la correcta gestión de la empresa con un simple vistazo al software.
+<br />
+<br />Para poder satisfacer estos objetivos, contamos con la ayuda de los propietarios, José Manuel y Belén Begines, que nos proporcionarán la información necesaria para llevar este proyecto a cabo.
+<br />
+<br />Tras estudiar el dominio de este problema con detenimiento, hemos llegado a la realización de un glosario en el que aparecen todo tipo de términos necesarios para entender sin ningún problema los conceptos utilizados en el proyecto.</p>
+<a name="SEC-0009" />
+<h2 align="left">2.2 
+Glosario de términos del dominio del problema</h2><a name="GLO-0006" />
+<p align="left">
+<b> Cachimba:</b> Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema <a href="#GLO-0015" title="Planta cuyas hojas, preparadas de una manera específica, se pueden fumar.">tabaco</a> picado, unido a un tubo terminado en una <a href="#GLO-0016" title="Adaptador cuya función es hacer que fumar sea un proceso más comodo.">boquilla</a>, por la que se aspira el humo</p>
+<a name="GRF-0001" />
+<p align="center">
+<img src=".\imagenes\partes_cachimba.gif" title=".\imagenes\partes_cachimba.gif" />
+</p>
+<p align="center">
+<b>Figura 1</b>:
+                
+Partes cachimba</p>
+<a name="PRG-0007" />
+<p>Partes de la <a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">cachimba</a>:</p>
+<a name="GLO-0008" />
+<p align="left">
+<b> Base:</b> Recipiente donde se deposita agua que actúa como filtrante para purificar el <a href="#GLO-0015" title="Planta cuyas hojas, preparadas de una manera específica, se pueden fumar.">tabaco</a>.</p>
+<a name="GLO-0009" />
+<p align="left">
+<b> Conector:</b> Parte de la <a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">cachimba</a> donde se introduce la <a href="#GLO-0010" title="Conducto de aspiración del vapor de agua">manguera</a>.</p>
+<a name="GLO-0010" />
+<p align="left">
+<b> Manguera:</b> Conducto de aspiración del vapor de agua</p>
+<a name="GLO-0011" />
+<p align="left">
+<b> Válvula:</b> Pequeño conducto tapado con una bola que se levanta al soplar con suavidad por la <a href="#GLO-0010" title="Conducto de aspiración del vapor de agua">manguera</a>, de manera que se purga el aire del interior de la <a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">cachimba</a>.</p>
+<a name="GLO-0016" />
+<p align="left">
+<b> Boquilla:</b> Adaptador cuya función es hacer que fumar sea un proceso más comodo.</p>
+<a name="GLO-0012" />
+<p align="left">
+<b> Mástil/Cuerpo de metal:</b> Conecta la <a href="#GLO-0008" title="Recipiente donde se deposita agua que actúa como filtrante para purificar el tabaco.">base</a> de la <a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">cachimba</a> con la cazoleta</p>
+<a name="GLO-0013" />
+<p align="left">
+<b> Cazoleta/Tarro:</b> Recipiente donde se coloca el <a href="#GLO-0015" title="Planta cuyas hojas, preparadas de una manera específica, se pueden fumar.">tabaco</a> picado.</p>
+<a name="GLO-0015" />
+<p align="left">
+<b> Tabaco:</b> Planta cuyas hojas, preparadas de una manera específica, se pueden fumar.</p>
+<a name="GRF-0002" />
+<p align="center">
+<img src=".\imagenes\tabaco en foto.jpg" title=".\imagenes\tabaco en foto.jpg" />
+</p>
+<p align="center">
+<b>Figura 2</b>:
+                 Tabaco</p>
+<a name="GLO-0014" />
+<p align="left">
+<b> Purgar:</b> Eliminar el exceso de aire en la <a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">cachimba</a> que puede hacer que ésta tenga un mal sabor.</p>
+<a name="GLO-0017" />
+<p align="left">
+<b> Cliente:</b> Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.</p>
+<a name="GLO-0018" />
+<p align="left">
+<b> Catering:</b> Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>.</p>
+<a name="GLO-0019" />
+<p align="left">
+<b> Evento:</b> Acontecimiento acordado previamente en el que se ofrecerán los servicios de <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a> de la empresa</p>
+<a name="GLO-0020" />
+<p align="left">
+<b> Tarifa:</b> Precio inicial de un determinado servicio, según cual sea contratado.</p>
+<a name="SEC-0010" />
+<h1 align="left">3 
+Descripción de la situación actual</h1><a name="SEC-0011" />
+<h2 align="left">3.1 
+Pros y contras de la situación actual</h2><a name="SEC-0012" />
+<h3 align="left">3.1.1 
+Fortalezas de la situación actual</h3><a name="PRG-0021" />
+<p>- Al ser un negocio pequeño, se trata de manera muy cercana al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a>, por lo que se pueden mejorar todos los aspectos a partir de la opinión directa del mismo.</p>
+<a name="PRG-0022" />
+<p>- La empresa no compra en grandes cantidades, ya que, al ser un negocio abierto recientemente, no disponen de un almacén suficientemente grande, ni de una clientela amplia, ni de un capital económico excesivo. Por lo tanto, se garantiza que lo que se compra va a ser vendido y no hay pérdidas por accesorios o <a href="#GLO-0015" title="Planta cuyas hojas, preparadas de una manera específica, se pueden fumar.">tabaco</a> no vendido.</p>
+<a name="SEC-0013" />
+<h3 align="left">3.1.2 
+Debilidades de la situación actual</h3><a name="PRG-0023" />
+<p>- Casi todo lo realizado en la empresa, tanto de ventas y reparaciones como del <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a>, están apuntadas y "organizadas" en cuadernos manuscritos (actualmente obsoletas) y en hojas de cálculo Excel, por lo que no hay una organización eficiente.</p>
+<a name="PRG-0024" />
+<p>- No se da a conocer lo suficiente al no disponer de un software apropiado.</p>
+<a name="PRG-0025" />
+<p>- No hay un control de los gastos ni de las compras a proveedores.</p>
+<a name="SEC-0014" />
+<h2 align="left">3.2 
+Modelos de procesos de negocio actuales</h2><a name="SEC-0015" />
+<h3 align="left">3.2.1 
+Descripción de actores de negocio actuales</h3><a name="ACT-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">ACT-0001</th>
+<th align="left" valign="top" width="100%">
+<a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">Cliente</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 23/11/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    Este actor representa
+<em>la persona o empresa que solicita y recibe uno o varios servicios ofrecidos por WeShisha.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="ACT-0004" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">ACT-0004</th>
+<th align="left" valign="top" width="100%">
+Proveedor</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 23/11/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    Este actor representa
+<em>la empresa que suministra los productos pedidos por la empresa.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="PRG-0026" />
+<p>Empresa:</p>
+<a name="ACT-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">ACT-0002</th>
+<th align="left" valign="top" width="100%">
+Encargado</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 23/11/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    Este actor representa
+<em>la persona que dirige principalmente la empresa.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="ACT-0003" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">ACT-0003</th>
+<th align="left" valign="top" width="100%">
+Empleado</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 23/11/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    Este actor representa
+<em>la persona contratada por la empresa para los eventos en los que se ofrece el <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a> o en las reparaciones.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0016" />
+<h2 align="left">3.3 
+Entorno tecnológico actual</h2><a name="SEC-0017" />
+<h3 align="left">3.3.1 
+Decripción del entorno de hardware actual</h3><a name="PRG-0027" />
+<p>Actualmente no disponen de ningún entorno tecnológico relacionado con el hardware, el único método de organización del que disponen es un cuaderno/agenda el el que apuntan todos los eventos ocurridos y programados en la empresa, además de las reparaciones que se llevan a cabo en la misma.
+<br />
+<br />También llevan a mano los productos que tienen en stock.</p>
+<a name="SEC-0018" />
+<h3 align="left">3.3.2 
+Decripción del entorno de software actual</h3><a name="PRG-0028" />
+<p>La empresa dispone de una página web meramente informativa en la que muestra su información de contacto, así como tarifas variadas y la descripción de sus cachimbas.
+<br />
+<br />El enlace a la página web es http://csmokeclouds-es.webnode.es/.
+<br />
+<br />A continuación se muestran fotos de la misma:</p>
+<a name="GRF-0003" />
+<p align="center">
+<img src="..\..\..\..\Desktop\PESEGE\Inicio.png" title="..\..\..\..\Desktop\PESEGE\Inicio.png" />
+</p>
+<p align="center">
+<b>Figura 1</b>:
+                
+Inicio - Web</p>
+<a name="GRF-0004" />
+<p align="center">
+<img src="..\..\..\..\Desktop\PESEGE\Artículos.png" title="..\..\..\..\Desktop\PESEGE\Artículos.png" />
+</p>
+<p align="center">
+<b>Figura 2</b>:
+                
+Articulos - Web</p>
+<a name="GRF-0005" />
+<p align="center">
+<img src="..\..\..\..\Desktop\PESEGE\Tarifas.png" title="..\..\..\..\Desktop\PESEGE\Tarifas.png" />
+</p>
+<p align="center">
+<b>Figura 3</b>:
+                 Tarifa - Web</p>
+<a name="GRF-0006" />
+<p align="center">
+<img src="..\..\..\..\Desktop\PESEGE\Contacto.png" title="..\..\..\..\Desktop\PESEGE\Contacto.png" />
+</p>
+<p align="center">
+<b>Figura 4</b>:
+                
+Contacto - Web</p>
+<a name="SEC-0019" />
+<h1 align="left">4 
+Necesidades de negocio</h1><a name="SEC-0020" />
+<h2 align="left">4.1 
+Objetivos de negocio</h2><a name="GLO-0029" />
+<p align="left">
+<b> HU - 001:</b>
+<br />Como propietario
+<br />Quiero ofrecer a los clientes información sobre los servicios de la empresa, como un catálogo de productos, tarifas sobre las reparaciones y el <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a>, y posibles ofertas.
+<br />Para mantener informado a mis clientes de todo lo que ofertamos.</p>
+<a name="GLO-0030" />
+<p align="left">
+<b> HU - 002:</b>
+<br />Como propietario
+<br />Quiero llevar a cabo los procesos de negocio necesarios en la empresa, como posibles pedidos de clientes, la agenda de los eventos sobre las reparaciones y el <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a>, o gestionar los productos en stock
+<br />Para tener una mejor organización de la empresa.
+<br />
+</p>
+<a name="GLO-0031" />
+<p align="left">
+<b> HU - 003:</b>
+<br />Como propietario
+<br />Quiero controlar las ventas que se han realizado
+<br />Para tener al día las transacciones y la disponibilidad de los productos.
+<br />
+</p>
+<a name="GLO-0032" />
+<p align="left">
+<b> HU - 004:</b>
+<br />Como propietario
+<br />Quiero gestionar el acceso a la aplicación de los clientes, los administradores y los empleados
+<br />Para dotar de distintos privilegios a los usuarios de la aplicación, y para conseguir una mejor organización.
+<br />
+</p>
+<a name="GLO-0033" />
+<p align="left">
+<b> HU - 005:</b>
+<br />Como propietario
+<br />Quiero tener una agenda
+<br />Para poder tener una visión clara sobre los próximos eventos, y poder marcar dichos eventos como completados.
+<br />
+</p>
+<a name="SEC-0021" />
+<h2 align="left">4.2 
+Modelo de procesos de negocio a implantar</h2><a name="SEC-0022" />
+<h3 align="left">4.2.1 
+Descripción de los actores de negocio a implantar</h3><a name="PRG-0034" />
+<p>No se implantará ningún actor de negocio distinto a los actuales.</p>
+<a name="SEC-0023" />
+<h3 align="left">4.2.2 
+Descripción de los procesos de negocio a implantar</h3><a name="PRG-0035" />
+<p>Ya que la funcionalidad a implementar es la descrita en los puntos anteriores, nuestro objetivo es llevar toda esta información a un sistema que permita organizar de manera eficiente todos los datos, haciendo que esta sea accesible (de distinta manera) para clientes, y administradores. Desde el punto de vista de los clientes, éstos deben poder comprar productos desde una aplicación web y poder contactar con los administradores para organizar el servicio de <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a> y reparaciones; desde el punto de vista de los administradores, poder visualizar en una agenda todos los eventos, comprobar stock, etc.
+<br />
+<br />Por tanto, los procesos de negocio descritos con anterioridad no sufrirán ninguna modificación al implementar el sistema.
+<br />
+</p>
+<a name="SEC-0024" />
+<h1 align="left">A 
+Acta de reuniones</h1><a name="MET-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Reunión</th>
+<th align="left" valign="top" width="100%">
+Reunión 1</th>
+</tr>
+<tr>
+<th align="left" valign="top">Fecha</th>
+<td align="left" valign="top" colspan="1">31/10/2017</td>
+</tr>
+<tr>
+<th align="left" valign="top">Hora</th>
+<td align="left" valign="top" colspan="1">13:45</td>
+</tr>
+<tr>
+<th align="left" valign="top">Lugar</th>
+<td align="left" valign="top" colspan="1">Facultad de química</td>
+</tr>
+<tr><th align="left" valign="top">Asistentes</th>
+<td align="left" valign="top">
+<ul>
+<li>
+<a href="#STK-0004" title="Begines Ruiz, José Manuel">
+Begines Ruiz, José Manuel</a>
+</li>
+<li>
+<a href="#STK-0001" title="Martínez Figueroa, Pablo">
+Martínez Figueroa, Pablo</a>
+</li>
+<li>
+<a href="#STK-0002" title="Montaño Aguilera, Antonio Manuel">
+Montaño Aguilera, Antonio Manuel</a>
+</li>
+<li>
+<a href="#STK-0003" title="Patón Gutiérrez, Miguel">
+Patón Gutiérrez, Miguel</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Resultados</th>
+<td align="left" valign="top" colspan="1">Los temas tratados en la reunión fueron: los procesos que se llevan a cabo en la empresa, es decir, cómo funciona el proceso de venta, reparación, y el <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a>; los objetivos que se buscan cumplir con este proyecto; el material usado en el día a día de la empresa y el almacén donde guardan los productos a usar.
+<br />
+<br />Comenzamos a hablar sobre los procesos de negocio, empezando por el proceso de venta, el cual José Manuel nos detalló, y gracias al cual hemos realizado el modelo BPMN de dicho proceso. Lo mismo ocurre con los procesos de reparación y el de <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a>. Nos comentó que, en dichos procesos, primero tiene que revisar el inventario para ver si tiene en existencia lo necesario para cumplir el objetivo del proceso. En caso de no tenerlo, se contacta con un proveedor que les proporciona los productos correspondientes. También se puede dar el caso de que, en un servicio de <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a>, la cantidad de <a href="#GLO-0015" title="Planta cuyas hojas, preparadas de una manera específica, se pueden fumar.">tabaco</a> requerido no sea muy grande, por lo tanto, en lugar de contactar con un proveedor, directamente uno de los responsables se dirigirá a un estanco a comprar dichos productos, ya que, al comprar pocos productos, la diferencia de precio entre un estanco y un proveedor no es muy notable.
+<br />
+<br />Después de tratar el tema anterior, comenzamos a hablar sobre los objetivos del proyecto. Sobre este tema, José Manuel nos propuso una serie de metas a alcanzar. Al ser una empresa muy reciente, su principal objetivo es crecer y darse a conocer, por lo tanto, nuestro objetivo principal es diseñar un sistema de información que les permita publicitarse en internet, y además poder administrar de forma eficiente todos los aspectos, tanto administrativos como económicos, de la empresa.
+<br />
+<br />El tema siguiente sería el material usado por los dueños para administrar la empresa. Respecto a éste, es muy simple, el cual se reduce a un sencillo cuaderno en el que anotan todos los eventos que van ocurriendo en la empresa, ya sean pedidos, ventas, reparaciones, etc.
+<br />
+<br />Por último, José Manuel nos habló sobre el lugar donde almacenan todos los productos a usar en la empresa. Se trata de un pequeño almacén ubicado en su misma casa, donde guardan los productos a vender, las cachimbas o accesorios a reparar, y los pro0ductos a usar en un servicio de <a href="#GLO-0018" title="Servicio de suministro de cachimbas en este caso, ofrecido por la empresa a cierta clientela en un determinado evento.">catering</a>.
+<br />
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+</body>
+</html>
