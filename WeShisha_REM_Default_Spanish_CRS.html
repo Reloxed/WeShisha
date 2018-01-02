@@ -911,6 +911,8 @@ Venta</p>
 <b>Figura 2</b>:
                 
 Reparación</p>
+<a name="PRG-0049" />
+<p>El <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> hará un pedido de reparación a la empresa. Tras registrar dicho pedido, el encargado evaluará la gravedad de las roturas a reparar y preparará un presupuesto que será enviado al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a>. Si el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> decide continuar con el proceso tras revisar el presupuesto, se revisará el inventario para saber si hace falta pedir nuevas piezas. Si decide no continuar, se termina. Si hacen falta nuevas piezas, se pedirán dichas piezas al proveedor, y una vez que lleguen, se continuará con el proceso. Si no, se continuará sin más. Tras disponer de las piezas necesarias, se reparará la <a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">cachimba</a> y se avisará al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> para que la recoja. Se le entregará la <a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">cachimba</a> reparada y se cobrará el pedido, dando por cerrado el pedido.</p>
 <a name="PRG-0039" />
 <p>El modelo BPMN mostrado abajo corresponde al proceso a seguir en un servicio de catering:</p>
 <a name="GRF-0009" />
@@ -921,6 +923,18 @@ Reparación</p>
 <b>Figura 3</b>:
                 
 Catering</p>
+<a name="PRG-0050" />
+<p>Aquí se muestra el subproceso de gestión de incidencias:</p>
+<a name="GRF-0016" />
+<p align="center">
+<img src=".\imagenes\BPMN\Subproceso incidencias.PNG" title=".\imagenes\BPMN\Subproceso incidencias.PNG" />
+</p>
+<p align="center">
+<b>Figura 4</b>:
+                
+Gestión de incidencias</p>
+<a name="PRG-0051" />
+<p>El <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> avisará al encargado para proceder a discutir las condiciones del contrato del servicio de catering. Si el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> no está de acuerdo, no se continúa con el proceso. En caso contrario, el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> pagará un señal o depositará una fianza, quedando como registrado el servicio de catering. Tras esto, se revisará el inventario para consultar si se disponen de los productos necesarios. En caso negativo, se pedirán dichos productos al proveedor. En caso afirmativo, se continúa sin más. Si por cualquier incidencia, los productos deseados no llegaran a tiempo por parte del proveedor, se contactará con el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> para comunicárselo y que decida otro producto a usar. Se prepararán los productos a utilizar y se esperará a que llegue el día del <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>. A este <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a> acudirán el/los empleado/s para encargarse del servicio a los clientes. Una vez finalizado el <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>, se recogerá el material y el/los empleado/s se marchará/n. El día después, se revisará si ha habido alguna incidencia en el <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>. En caso negativo, se cobrarán los servicios y se dará por finalizado el servicio. En caso afirmativo, se gestionarán las incidencias. Si se ha roto un producto, en caso de que el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> depositase una fianza, se usará dinero de dicha fianza para cubrir los gastos, y en caso de que fuera una señal, aumentará el coste del servicio. Si el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> considera que ha habido un incumplimiento del contrato por parte de WeShisha, se discutirán las condiciones con el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> para llegar a un acuerdo sobre dicho incumplimiento.</p>
 <a name="SEC-0016" />
 <h2 align="left">3.3 
 Entorno tecnológico actual</h2><a name="SEC-0017" />
@@ -2346,14 +2360,14 @@ Begines Ruiz, José Manuel</a>
 <th align="left" valign="top">Dependencias</th>
 <td align="left" valign="top" colspan="2">
 <li>
-<a href="#OBJ-0002" title="Calcular presupuesto">
-                                [OBJ-0002] 
-Calcular presupuesto</a>
-</li>
-<li>
 <a href="#OBJ-0003" title="Información de contacto">
                                 [OBJ-0003] 
 Información de contacto</a>
+</li>
+<li>
+<a href="#OBJ-0002" title="Calcular presupuesto">
+                                [OBJ-0002] 
+Calcular presupuesto</a>
 </li>
 </td>
 </tr>
