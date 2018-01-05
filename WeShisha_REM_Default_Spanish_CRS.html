@@ -1051,9 +1051,9 @@ Descripción de los actores de negocio a implantar</h3><a name="PRG-0034" />
 Descripción de los procesos de negocio a implantar</h3><a name="PRG-0035" />
 <p>Ya que la funcionalidad a implementar es la descrita en los puntos anteriores, nuestro objetivo es llevar toda esta información a un sistema que permita organizar de manera eficiente todos los datos, haciendo que esta sea accesible (de distinta manera) para clientes, y administradores. Desde el punto de vista de los clientes, éstos deben poder comprar productos desde una aplicación web y poder contactar con los administradores para organizar el servicio de catering y reparaciones; desde el punto de vista de los administradores, poder visualizar en una agenda todos los eventos, comprobar stock, etc.
 <br />
-<br />Por tanto, los procesos de negocio descritos con anterioridad no sufrirán ninguna modificación al implementar el sistema.
-<br />
-</p>
+<br />Por tanto, los procesos de negocio sufrirán las siguientes modificaciones:
+<br /> - En el proceso de venta, los únicos cambios significativos que se realizarán serán el registro del pedido, que se llevará a cabo mediante el sistema de manera automatizada, y el pago, que se podrá realizar mediante la aplicación.
+<br /> - Tanto en el proceso de negocio de reparaciones como en el de catering, no se aprecian cambios que afecten a los procesos de negocio actuales,</p>
 <a name="SEC-0026" />
 <h1 align="left">5 
 Descripción de los subsistemas a desarrollar</h1><a name="PRG-0038" />
@@ -1760,17 +1760,17 @@ Ninguno</td>
 <p />
 <a name="SEC-0032" />
 <h3 align="left">6.2.3 
-Especificación de casos de uso del sistema</h3><a name="UC-0005" />
+Especificación de casos de uso del sistema</h3><a name="UC-0010" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">UC-0005</th>
+<th align="left" valign="top">UC-0010</th>
 <th align="left" valign="top" width="100%" colspan="2">
-Realizar un pedido</th>
+Añadir fotos a un servicio concreto</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
 <td align="left" valign="top" colspan="2">1.0
-            ( 07/12/2017 )
+            ( 10/12/2017 )
         </td>
 </tr>
 <tr>
@@ -1800,11 +1800,6 @@ Patón Gutiérrez, Miguel</a>
 <td align="left" valign="top" colspan="2">
 <ul>
 <li>
-<a href="#STK-0005">
-Begines Ruiz, Belén</a>
-<br />
-</li>
-<li>
 <a href="#STK-0004">
 Begines Ruiz, José Manuel</a>
 <br />
@@ -1814,13 +1809,7 @@ Begines Ruiz, José Manuel</a>
 </tr>
 <tr>
 <th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">
-<li>
-<a href="#OBJ-0001" title="Informar sobre los servicios ofrecidos.">
-                                [OBJ-0001] 
-Informar sobre los servicios ofrecidos.</a>
-</li>
-</td>
+<td align="left" valign="top" colspan="2">Ninguno</td>
 </tr>
 <tr>
 <th align="left" valign="top">Descripción</th>
@@ -1829,7 +1818,7 @@ Informar sobre los servicios ofrecidos.</a>
 
     caso de uso cuando
 <em>
-el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> desea hacer un pedido en la aplicación</em>
+el encargado quiera asignar a cierto eventos fotos de éste.</em>
 </td>
 </tr>
 <tr>
@@ -1839,66 +1828,56 @@ el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o rea
 </td>
 </tr>
 <tr>
-<th align="left" valign="top" rowspan="7">Secuencia normal</th>
+<th align="left" valign="top" rowspan="6">Secuencia normal</th>
 <th align="center" valign="top">Paso</th>
 <th align="left" valign="top" width="100%">Acción</th>
 </tr>
 <tr>
-<a name="STP-0081" />
+<a name="STP-0102" />
 <td align="center" valign="top">1</td>
-<td>El actor<a href="#ACT-0001" title="Este actor representa la persona o empresa que solicita y recibe uno o varios servicios ofrecidos por WeShisha."> Cliente (ACT-0001)
+<td>El actor<a href="#ACT-0002" title="Este actor representa la persona que dirige principalmente la empresa.">
+Encargado (ACT-0002)
     </a>
 <em>
-seleccionará el producto deseado y hará click en "agregar al carro".</em>
+se dirige a la agenda de los eventos.</em>
 </td>
 </tr>
 <tr>
-<a name="STP-0082" />
+<a name="STP-0103" />
 <td align="center" valign="top">2</td>
-<td>El
-     
-    sistema<em>
-procesará el producto y lo agregará al carro.</em>
+<td>El actor<a href="#ACT-0002" title="Este actor representa la persona que dirige principalmente la empresa.">
+Encargado (ACT-0002)
+    </a>
+<em>
+hace "click" en el <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a> deseado.</em>
 </td>
 </tr>
 <tr>
-<a name="STP-0083" />
+<a name="STP-0104" />
 <td align="center" valign="top">3</td>
-<td>El actor<a href="#ACT-0001" title="Este actor representa la persona o empresa que solicita y recibe uno o varios servicios ofrecidos por WeShisha."> Cliente (ACT-0001)
-    </a>
-<em>
-confirmará el pedido una vez el carro de la compra esté completo</em>
-</td>
-</tr>
-<tr>
-<a name="STP-0084" />
-<td align="center" valign="top">4</td>
 <td>El
      
     sistema<em>
-ofrecerá al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> un formulario para rellenar con sus datos personales</em>
+muestra un formulario para añadir la foto.</em>
 </td>
 </tr>
 <tr>
-<a name="STP-0085" />
-<td align="center" valign="top">5</td>
-<td>Si<em>
-el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> ya realizó un pedido anteriormente, se añadirán automáticamente los datos del <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a>, en caso contrario,
-                                </em>el actor<a href="#ACT-0001" title="Este actor representa la persona o empresa que solicita y recibe uno o varios servicios ofrecidos por WeShisha."> Cliente (ACT-0001)
+<a name="STP-0106" />
+<td align="center" valign="top">4</td>
+<td>El actor<a href="#ACT-0002" title="Este actor representa la persona que dirige principalmente la empresa.">
+Encargado (ACT-0002)
     </a>
 <em>
-cumplimentará el formulario con sus datos.</em>
+añade la foto.</em>
 </td>
 </tr>
 <tr>
-<a name="STP-0086" />
-<td align="center" valign="top">6</td>
-<td>Si<em>
-los datos introducidos son aptos,
-                                </em>el
+<a name="STP-0105" />
+<td align="center" valign="top">5</td>
+<td>El
      
     sistema<em>
-procesará el pedido y ofrecerá una fecha aproximada de la recogida del producto.</em>
+lo procesa y la añade.</em>
 </td>
 </tr>
 <tr>
@@ -1908,41 +1887,17 @@ procesará el pedido y ofrecerá una fecha aproximada de la recogida del producto.
 </td>
 </tr>
 <tr>
-<th align="left" valign="top" rowspan="3">Excepciones</th>
+<th align="left" valign="top" rowspan="2">Excepciones</th>
 <th align="center" valign="top">Paso</th>
 <th align="left" valign="top" width="100%">Acción</th>
 </tr>
 <tr>
-<a name="STX-0004" />
-<td align="center" valign="top">3</td>
-<td>Si<em>
-el carro está vacío,
-                            </em>el
-     
-    sistema<em>
-no permitirá continuar con la "compra"</em>,
-                            a continuación este caso de uso
-                             
-                            <em>
-<font color="red"><b>PD</b></font>
-</em>
-</td>
-</tr>
-<tr>
-<a name="STX-0005" />
-<td align="center" valign="top">5</td>
-<td>Si<em>
-se detecta un error en los datos,
-                            </em>el
-     
-    sistema<em>
-informará al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> sobre el error y regresará a los datos.</em>,
-                            a continuación este caso de uso
-                             
-                            <em>
-<font color="red"><b>PD</b></font>
-</em>
-</td>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
 </tr>
 <tr>
 <th align="left" valign="top" rowspan="2">Rendimiento</th>
@@ -2362,195 +2317,12 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="UC-0003" />
+<a name="UC-0005" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">UC-0003</th>
+<th align="left" valign="top">UC-0005</th>
 <th align="left" valign="top" width="100%" colspan="2">
-Registro de usuario</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top" colspan="2">1.0
-            ( 07/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="2">
-<ul>
-<li>
-<a href="#STK-0001">
-Martínez Figueroa, Pablo</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="2">
-<ul>
-<li>
-<a href="#STK-0005">
-Begines Ruiz, Belén</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">
-<li>
-<a href="#OBJ-0004" title="Tipos de usuario">
-                                [OBJ-0004] 
-Tipos de usuario</a>
-</li>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td colspan="2">
-    El sistema deberá comportarse tal como se describe en el siguiente
-
-    caso de uso cuando
-<em>
-el usuario hace "click" en el botón de registro de la aplicación.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Precondición</th>
-<td align="left" valign="top" colspan="2">
-El usuario hace "click" en el botón de registro de la aplicación.</td>
-</tr>
-<tr>
-<th align="left" valign="top" rowspan="5">Secuencia normal</th>
-<th align="center" valign="top">Paso</th>
-<th align="left" valign="top" width="100%">Acción</th>
-</tr>
-<tr>
-<a name="STP-0074" />
-<td align="center" valign="top">1</td>
-<td>El
-     
-    sistema<em>
-preguntará qué tipo de usuario se desea registrar.</em>
-</td>
-</tr>
-<tr>
-<a name="STP-0075" />
-<td align="center" valign="top">2</td>
-<td>Si<em>
-el usuario desea registrar un <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a>,
-                                </em>el
-     
-    sistema<em>
-generará un formulario específico para el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a>
-</em>
-</td>
-</tr>
-<tr>
-<a name="STP-0076" />
-<td align="center" valign="top">3</td>
-<td>Si<em>
-el usuario desea registrar un encargado o un empleado,
-                                </em>el
-     
-    sistema<em>
-pedirá previamente un código para admitir el registro de dicho usuario. Posteriormente, se generará el formulario para el registro de dicho usuario.</em>
-</td>
-</tr>
-<tr>
-<a name="STP-0077" />
-<td align="center" valign="top">4</td>
-<td>El
-     
-    sistema<em>
-validará los datos introducidos, enviando un correo de confirmación al email correspondiente.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Postcondición</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top" rowspan="2">Excepciones</th>
-<th align="center" valign="top">Paso</th>
-<th align="left" valign="top" width="100%">Acción</th>
-</tr>
-<tr>
-<a name="STX-0002" />
-<td align="center" valign="top">4</td>
-<td>Si<em>
-algún dato introducido es erróneo,
-                            </em>el
-     
-    sistema<em>
-regresará al formulario e indicará al usuario los datos mal introducidos</em>,
-                            a continuación este caso de uso
-                             
-                            <em>continúa</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top" rowspan="2">Rendimiento</th>
-<th align="center" valign="top">Paso</th>
-<th align="left" valign="top" width="100%">Tiempo máximo</th>
-</tr>
-<tr>
-<td align="center" valign="top">
-                        -
-                    </td>
-<td>
-                        -
-                    </td>
-</tr>
-<tr>
-<th align="left" valign="top">Frecuencia esperada</th>
-<td colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="2">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="UC-0004" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">UC-0004</th>
-<th align="left" valign="top" width="100%" colspan="2">
-Inicio de sesión</th>
+Realizar un pedido</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
@@ -2572,162 +2344,9 @@ Martínez Figueroa, Pablo</a>
 Montaño Aguilera, Antonio Manuel</a>
 <br />
 </li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">
 <li>
-<a href="#OBJ-0004" title="Tipos de usuario">
-                                [OBJ-0004] 
-Tipos de usuario</a>
-</li>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td colspan="2">
-    El sistema deberá comportarse tal como se describe en el siguiente
-
-    caso de uso cuando
-<em>
-el usuario desea iniciar sesión.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Precondición</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top" rowspan="3">Secuencia normal</th>
-<th align="center" valign="top">Paso</th>
-<th align="left" valign="top" width="100%">Acción</th>
-</tr>
-<tr>
-<a name="STP-0079" />
-<td align="center" valign="top">1</td>
-<td>El actor<a href="#ACT-0005" title="Este actor representa a todo aquel que interactúe con la aplicación.">
-Usuario (ACT-0005)
-    </a>
-<em>
-introducirá los datos correspondientes en el formulario de inicio de sesión</em>
-</td>
-</tr>
-<tr>
-<a name="STP-0080" />
-<td align="center" valign="top">2</td>
-<td>El
-     
-    sistema<em>
-procesará la información introducida y llevará al usuario a la página de inicio.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Postcondición</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top" rowspan="2">Excepciones</th>
-<th align="center" valign="top">Paso</th>
-<th align="left" valign="top" width="100%">Acción</th>
-</tr>
-<tr>
-<a name="STX-0003" />
-<td align="center" valign="top">2</td>
-<td>Si<em>
-los datos introducidos son incorrectos,
-                            </em>el
-     
-    sistema<em>
-regresará al formulario de inicio de sesión, indicando al usuario que los datos son incorrectos.</em>,
-                            a continuación este caso de uso
-                             
-                            <em>
-<font color="red"><b>PD</b></font>
-</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top" rowspan="2">Rendimiento</th>
-<th align="center" valign="top">Paso</th>
-<th align="left" valign="top" width="100%">Tiempo máximo</th>
-</tr>
-<tr>
-<td align="center" valign="top">
-                        -
-                    </td>
-<td>
-                        -
-                    </td>
-</tr>
-<tr>
-<th align="left" valign="top">Frecuencia esperada</th>
-<td colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="2">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="UC-0007" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">UC-0007</th>
-<th align="left" valign="top" width="100%" colspan="2">
-Consultar fotos</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top" colspan="2">1.0
-            ( 08/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="2">
-<ul>
-<li>
-<a href="#STK-0001">
-Martínez Figueroa, Pablo</a>
+<a href="#STK-0003">
+Patón Gutiérrez, Miguel</a>
 <br />
 </li>
 </ul>
@@ -2736,12 +2355,29 @@ Martínez Figueroa, Pablo</a>
 <tr>
 <th align="left" valign="top">Fuentes</th>
 <td align="left" valign="top" colspan="2">
-<font color="red"><b>?</b></font>
+<ul>
+<li>
+<a href="#STK-0005">
+Begines Ruiz, Belén</a>
+<br />
+</li>
+<li>
+<a href="#STK-0004">
+Begines Ruiz, José Manuel</a>
+<br />
+</li>
+</ul>
 </td>
 </tr>
 <tr>
 <th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">Ninguno</td>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001" title="Informar sobre los servicios ofrecidos.">
+                                [OBJ-0001] 
+Informar sobre los servicios ofrecidos.</a>
+</li>
+</td>
 </tr>
 <tr>
 <th align="left" valign="top">Descripción</th>
@@ -2750,7 +2386,7 @@ Martínez Figueroa, Pablo</a>
 
     caso de uso cuando
 <em>
-el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> consulta la fotogalería.</em>
+el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> desea hacer un pedido en la aplicación</em>
 </td>
 </tr>
 <tr>
@@ -2760,19 +2396,66 @@ el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o rea
 </td>
 </tr>
 <tr>
-<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="left" valign="top" rowspan="7">Secuencia normal</th>
 <th align="center" valign="top">Paso</th>
 <th align="left" valign="top" width="100%">Acción</th>
 </tr>
 <tr>
-<a name="STP-0098" />
+<a name="STP-0081" />
 <td align="center" valign="top">1</td>
+<td>El actor<a href="#ACT-0001" title="Este actor representa la persona o empresa que solicita y recibe uno o varios servicios ofrecidos por WeShisha."> Cliente (ACT-0001)
+    </a>
+<em>
+seleccionará el producto deseado y hará click en "agregar al carro".</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0082" />
+<td align="center" valign="top">2</td>
+<td>El
+     
+    sistema<em>
+procesará el producto y lo agregará al carro.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0083" />
+<td align="center" valign="top">3</td>
+<td>El actor<a href="#ACT-0001" title="Este actor representa la persona o empresa que solicita y recibe uno o varios servicios ofrecidos por WeShisha."> Cliente (ACT-0001)
+    </a>
+<em>
+confirmará el pedido una vez el carro de la compra esté completo</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0084" />
+<td align="center" valign="top">4</td>
+<td>El
+     
+    sistema<em>
+ofrecerá al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> un formulario para rellenar con sus datos personales</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0085" />
+<td align="center" valign="top">5</td>
 <td>Si<em>
-el usuario hace click en una miniatura de una foto,
+el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> ya realizó un pedido anteriormente, se añadirán automáticamente los datos del <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a>, en caso contrario,
+                                </em>el actor<a href="#ACT-0001" title="Este actor representa la persona o empresa que solicita y recibe uno o varios servicios ofrecidos por WeShisha."> Cliente (ACT-0001)
+    </a>
+<em>
+cumplimentará el formulario con sus datos.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0086" />
+<td align="center" valign="top">6</td>
+<td>Si<em>
+los datos introducidos son aptos,
                                 </em>el
      
     sistema<em>
-agrandará la foto y mostrará información sobre dicha foto</em>
+procesará el pedido y ofrecerá una fecha aproximada de la recogida del producto.</em>
 </td>
 </tr>
 <tr>
@@ -2782,17 +2465,41 @@ agrandará la foto y mostrará información sobre dicha foto</em>
 </td>
 </tr>
 <tr>
-<th align="left" valign="top" rowspan="2">Excepciones</th>
+<th align="left" valign="top" rowspan="3">Excepciones</th>
 <th align="center" valign="top">Paso</th>
 <th align="left" valign="top" width="100%">Acción</th>
 </tr>
 <tr>
-<td align="center" valign="top">
-                        -
-                    </td>
-<td>
-                        -
-                    </td>
+<a name="STX-0004" />
+<td align="center" valign="top">3</td>
+<td>Si<em>
+el carro está vacío,
+                            </em>el
+     
+    sistema<em>
+no permitirá continuar con la "compra"</em>,
+                            a continuación este caso de uso
+                             
+                            <em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<a name="STX-0005" />
+<td align="center" valign="top">5</td>
+<td>Si<em>
+se detecta un error en los datos,
+                            </em>el
+     
+    sistema<em>
+informará al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> sobre el error y regresará a los datos.</em>,
+                            a continuación este caso de uso
+                             
+                            <em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
 </tr>
 <tr>
 <th align="left" valign="top" rowspan="2">Rendimiento</th>
@@ -3009,17 +2716,17 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="UC-0010" />
+<a name="UC-0003" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">UC-0010</th>
+<th align="left" valign="top">UC-0003</th>
 <th align="left" valign="top" width="100%" colspan="2">
-Añadir fotos a un servicio concreto</th>
+Registro de usuario</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
 <td align="left" valign="top" colspan="2">1.0
-            ( 10/12/2017 )
+            ( 07/12/2017 )
         </td>
 </tr>
 <tr>
@@ -3031,16 +2738,6 @@ Añadir fotos a un servicio concreto</th>
 Martínez Figueroa, Pablo</a>
 <br />
 </li>
-<li>
-<a href="#STK-0002">
-Montaño Aguilera, Antonio Manuel</a>
-<br />
-</li>
-<li>
-<a href="#STK-0003">
-Patón Gutiérrez, Miguel</a>
-<br />
-</li>
 </ul>
 </td>
 </tr>
@@ -3049,8 +2746,8 @@ Patón Gutiérrez, Miguel</a>
 <td align="left" valign="top" colspan="2">
 <ul>
 <li>
-<a href="#STK-0004">
-Begines Ruiz, José Manuel</a>
+<a href="#STK-0005">
+Begines Ruiz, Belén</a>
 <br />
 </li>
 </ul>
@@ -3058,7 +2755,13 @@ Begines Ruiz, José Manuel</a>
 </tr>
 <tr>
 <th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">Ninguno</td>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0004" title="Tipos de usuario">
+                                [OBJ-0004] 
+Tipos de usuario</a>
+</li>
+</td>
 </tr>
 <tr>
 <th align="left" valign="top">Descripción</th>
@@ -3067,66 +2770,58 @@ Begines Ruiz, José Manuel</a>
 
     caso de uso cuando
 <em>
-el encargado quiera asignar a cierto eventos fotos de éste.</em>
+el usuario hace "click" en el botón de registro de la aplicación.</em>
 </td>
 </tr>
 <tr>
 <th align="left" valign="top">Precondición</th>
 <td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
+El usuario hace "click" en el botón de registro de la aplicación.</td>
 </tr>
 <tr>
-<th align="left" valign="top" rowspan="6">Secuencia normal</th>
+<th align="left" valign="top" rowspan="5">Secuencia normal</th>
 <th align="center" valign="top">Paso</th>
 <th align="left" valign="top" width="100%">Acción</th>
 </tr>
 <tr>
-<a name="STP-0102" />
+<a name="STP-0074" />
 <td align="center" valign="top">1</td>
-<td>El actor<a href="#ACT-0002" title="Este actor representa la persona que dirige principalmente la empresa.">
-Encargado (ACT-0002)
-    </a>
-<em>
-se dirige a la agenda de los eventos.</em>
+<td>El
+     
+    sistema<em>
+preguntará qué tipo de usuario se desea registrar.</em>
 </td>
 </tr>
 <tr>
-<a name="STP-0103" />
+<a name="STP-0075" />
 <td align="center" valign="top">2</td>
-<td>El actor<a href="#ACT-0002" title="Este actor representa la persona que dirige principalmente la empresa.">
-Encargado (ACT-0002)
-    </a>
-<em>
-hace "click" en el <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a> deseado.</em>
+<td>Si<em>
+el usuario desea registrar un <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a>,
+                                </em>el
+     
+    sistema<em>
+generará un formulario específico para el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a>
+</em>
 </td>
 </tr>
 <tr>
-<a name="STP-0104" />
+<a name="STP-0076" />
 <td align="center" valign="top">3</td>
-<td>El
+<td>Si<em>
+el usuario desea registrar un encargado o un empleado,
+                                </em>el
      
     sistema<em>
-muestra un formulario para añadir la foto.</em>
+pedirá previamente un código para admitir el registro de dicho usuario. Posteriormente, se generará el formulario para el registro de dicho usuario.</em>
 </td>
 </tr>
 <tr>
-<a name="STP-0106" />
+<a name="STP-0077" />
 <td align="center" valign="top">4</td>
-<td>El actor<a href="#ACT-0002" title="Este actor representa la persona que dirige principalmente la empresa.">
-Encargado (ACT-0002)
-    </a>
-<em>
-añade la foto.</em>
-</td>
-</tr>
-<tr>
-<a name="STP-0105" />
-<td align="center" valign="top">5</td>
 <td>El
      
     sistema<em>
-lo procesa y la añade.</em>
+validará los datos introducidos, enviando un correo de confirmación al email correspondiente.</em>
 </td>
 </tr>
 <tr>
@@ -3141,12 +2836,18 @@ lo procesa y la añade.</em>
 <th align="left" valign="top" width="100%">Acción</th>
 </tr>
 <tr>
-<td align="center" valign="top">
-                        -
-                    </td>
-<td>
-                        -
-                    </td>
+<a name="STX-0002" />
+<td align="center" valign="top">4</td>
+<td>Si<em>
+algún dato introducido es erróneo,
+                            </em>el
+     
+    sistema<em>
+regresará al formulario e indicará al usuario los datos mal introducidos</em>,
+                            a continuación este caso de uso
+                             
+                            <em>continúa</em>
+</td>
 </tr>
 <tr>
 <th align="left" valign="top" rowspan="2">Rendimiento</th>
@@ -3202,17 +2903,17 @@ Ninguno</td>
 <h2 align="left">6.3 
 Requisitos funcionales del sistema</h2><a name="SEC-0034" />
 <h3 align="left">6.3.1 
-Requisitos de información del sistema</h3><a name="IRQ-0001" />
+Requisitos de información del sistema</h3><a name="IRQ-0010" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">IRQ-0001</th>
+<th align="left" valign="top">IRQ-0010</th>
 <th align="left" valign="top" width="100%" colspan="2">
-Información sobre los productos</th>
+Información sobre las fotos</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
 <td align="left" valign="top" colspan="2">1.0 
-			( 30/11/2017 )
+			( 08/12/2017 )
         </td>
 </tr>
 <tr>
@@ -3236,11 +2937,6 @@ Montaño Aguilera, Antonio Manuel</a>
 Begines Ruiz, Belén</a>
 <br />
 </li>
-<li>
-<a href="#STK-0004">
-Begines Ruiz, José Manuel</a>
-<br />
-</li>
 </ul>
 </td>
 </tr>
@@ -3248,14 +2944,9 @@ Begines Ruiz, José Manuel</a>
 <th align="left" valign="top">Dependencias</th>
 <td align="left" valign="top" colspan="2">
 <li>
-<a href="#OBJ-0001" title="Informar sobre los servicios ofrecidos.">
-                                [OBJ-0001] 
-Informar sobre los servicios ofrecidos.</a>
-</li>
-<li>
-<a href="#OBJ-0008" title="Pedidos">
-                                [OBJ-0008] 
-Pedidos</a>
+<a href="#OBJ-0005" title="Fotogalería">
+                                [OBJ-0005] 
+Fotogalería</a>
 </li>
 </td>
 </tr>
@@ -3264,7 +2955,7 @@ Pedidos</a>
 <td colspan="2">
     El sistema deberá almacenar la información correspondiente a 
 <em>
-los datos de los productos en el catálogo de venta y en el catering.
+las fotos que se mostrarán en la fotogalería de la aplicación..
 				</em>
     En concreto:
 </td>
@@ -3274,20 +2965,11 @@ los datos de los productos en el catálogo de venta y en el catering.
 <td colspan="2" align="left" valign="top">
 <ul>
 <li>
-<a name="DAT-0001" />
-Nombre</li>
+<a name="DAT-0093" />
+Tipo de foto (Catering, reparación o producto).</li>
 <li>
-<a name="DAT-0003" />
-Marca</li>
-<li>
-<a name="DAT-0002" />
-Precio</li>
-<li>
-<a name="DAT-0004" />
-Descripción</li>
-<li>
-<a name="DAT-0005" />
-Tipo de producto (<a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">Cachimba</a>, <a href="#GLO-0010" title="Parte de la cachimba que se usa como conducto de aspiración del vapor de agua.">manguera</a>, cazoleta, carbones, <a href="#GLO-0015" title="Planta cuyas hojas, preparadas de una manera específica, se pueden fumar.">tabaco</a>, <a href="#GLO-0008" title="Parte de la cachimba que se usa como recipiente donde se deposita agua que actúa como filtrante para purificar el tabaco.">base</a> o accesorio)</li>
+<a name="DAT-0094" />
+Título</li>
 </ul>
 </td>
 </tr>
@@ -3348,12 +3030,398 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="IRQ-0002" />
+<a name="IRQ-0011" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">IRQ-0002</th>
+<th align="left" valign="top">IRQ-0011</th>
 <th align="left" valign="top" width="100%" colspan="2">
-Información sobre los encargados</th>
+Información sobre las normas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 08/12/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<ul>
+<li>
+<a href="#STK-0002">
+Montaño Aguilera, Antonio Manuel</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0006" title="Política de contrato y normas">
+                                [OBJ-0006] 
+Política de contrato y normas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+las normas a seguir a la hora de contratar un determinado servicio.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0095" />
+Nombre de la norma</li>
+<li>
+<a name="DAT-0096" />
+Descripción de la norma.</li>
+<li>
+<a name="DAT-0097" />
+Tipo de norma</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0007" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0007</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información sobre las reparaciones</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 04/12/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0007" title="Gestión de la empresa">
+                                [OBJ-0007] 
+Gestión de la empresa</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+<font color="red"><b>PD</b></font>.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0054" />
+Producto</li>
+<li>
+<a name="DAT-0055" />
+<a href="#GLO-0020" title="Precio inicial de un determinado servicio, según cual sea contratado.">Tarifa</a> a aplicar</li>
+<li>
+<a name="DAT-0056" />
+Precio final</li>
+<li>
+<a name="DAT-0057" />
+¿Cobrado?</li>
+<li>
+<a name="DAT-0058" />
+¿Entregado?</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0005" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0005</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información sobre las ventas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 30/11/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0007" title="Gestión de la empresa">
+                                [OBJ-0007] 
+Gestión de la empresa</a>
+</li>
+<li>
+<a href="#OBJ-0008" title="Pedidos">
+                                [OBJ-0008] 
+Pedidos</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+los pedidos realizados, ya sean de reparación o de venta.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0038" />
+Productos</li>
+<li>
+<a name="DAT-0039" />
+Cantidad</li>
+<li>
+<a name="DAT-0040" />
+Precio individual</li>
+<li>
+<a name="DAT-0041" />
+Precio total</li>
+<li>
+<a name="DAT-0042" />
+Cupón de descuento</li>
+<li>
+<a name="DAT-0043" />
+Fecha aproximada de recogida</li>
+<li>
+<a name="DAT-0052" />
+¿Cobrado?</li>
+<li>
+<a name="DAT-0051" />
+¿Entregado?</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0004" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0004</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información sobre los clientes</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
@@ -3366,8 +3434,8 @@ Información sobre los encargados</th>
 <td align="left" valign="top" colspan="2">
 <ul>
 <li>
-<a href="#STK-0003">
-Patón Gutiérrez, Miguel</a>
+<a href="#STK-0001">
+Martínez Figueroa, Pablo</a>
 <br />
 </li>
 </ul>
@@ -3398,11 +3466,6 @@ Begines Ruiz, José Manuel</a>
                                 [OBJ-0004] 
 Tipos de usuario</a>
 </li>
-<li>
-<a href="#OBJ-0003" title="Información de contacto">
-                                [OBJ-0003] 
-Información de contacto</a>
-</li>
 </td>
 </tr>
 <tr>
@@ -3410,7 +3473,7 @@ Información de contacto</a>
 <td colspan="2">
     El sistema deberá almacenar la información correspondiente a 
 <em>
-los encargados de la empresa.
+los clientes de la empresa.
 				</em>
     En concreto:
 </td>
@@ -3420,23 +3483,29 @@ los encargados de la empresa.
 <td colspan="2" align="left" valign="top">
 <ul>
 <li>
-<a name="DAT-0013" />
+<a name="DAT-0030" />
 Nombre</li>
 <li>
-<a name="DAT-0014" />
+<a name="DAT-0031" />
 Apellidos</li>
 <li>
-<a name="DAT-0015" />
+<a name="DAT-0032" />
+DNI</li>
+<li>
+<a name="DAT-0033" />
 Nombre de usuario</li>
 <li>
-<a name="DAT-0016" />
+<a name="DAT-0034" />
 Contraseña</li>
 <li>
-<a name="DAT-0017" />
-Teléfono</li>
+<a name="DAT-0035" />
+Telefono</li>
 <li>
-<a name="DAT-0018" />
+<a name="DAT-0036" />
 Email</li>
+<li>
+<a name="DAT-0037" />
+¿Ha comprado alguna vez?</li>
 </ul>
 </td>
 </tr>
@@ -3658,12 +3727,12 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="IRQ-0004" />
+<a name="IRQ-0002" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">IRQ-0004</th>
+<th align="left" valign="top">IRQ-0002</th>
 <th align="left" valign="top" width="100%" colspan="2">
-Información sobre los clientes</th>
+Información sobre los encargados</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
@@ -3676,8 +3745,8 @@ Información sobre los clientes</th>
 <td align="left" valign="top" colspan="2">
 <ul>
 <li>
-<a href="#STK-0001">
-Martínez Figueroa, Pablo</a>
+<a href="#STK-0003">
+Patón Gutiérrez, Miguel</a>
 <br />
 </li>
 </ul>
@@ -3708,6 +3777,11 @@ Begines Ruiz, José Manuel</a>
                                 [OBJ-0004] 
 Tipos de usuario</a>
 </li>
+<li>
+<a href="#OBJ-0003" title="Información de contacto">
+                                [OBJ-0003] 
+Información de contacto</a>
+</li>
 </td>
 </tr>
 <tr>
@@ -3715,7 +3789,7 @@ Tipos de usuario</a>
 <td colspan="2">
     El sistema deberá almacenar la información correspondiente a 
 <em>
-los clientes de la empresa.
+los encargados de la empresa.
 				</em>
     En concreto:
 </td>
@@ -3725,29 +3799,169 @@ los clientes de la empresa.
 <td colspan="2" align="left" valign="top">
 <ul>
 <li>
-<a name="DAT-0030" />
+<a name="DAT-0013" />
 Nombre</li>
 <li>
-<a name="DAT-0031" />
+<a name="DAT-0014" />
 Apellidos</li>
 <li>
-<a name="DAT-0032" />
-DNI</li>
-<li>
-<a name="DAT-0033" />
+<a name="DAT-0015" />
 Nombre de usuario</li>
 <li>
-<a name="DAT-0034" />
+<a name="DAT-0016" />
 Contraseña</li>
 <li>
-<a name="DAT-0035" />
-Telefono</li>
+<a name="DAT-0017" />
+Teléfono</li>
 <li>
-<a name="DAT-0036" />
+<a name="DAT-0018" />
 Email</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0001</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información sobre los productos</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 30/11/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<ul>
 <li>
-<a name="DAT-0037" />
-¿Ha comprado alguna vez?</li>
+<a href="#STK-0002">
+Montaño Aguilera, Antonio Manuel</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<ul>
+<li>
+<a href="#STK-0005">
+Begines Ruiz, Belén</a>
+<br />
+</li>
+<li>
+<a href="#STK-0004">
+Begines Ruiz, José Manuel</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0008" title="Pedidos">
+                                [OBJ-0008] 
+Pedidos</a>
+</li>
+<li>
+<a href="#OBJ-0001" title="Informar sobre los servicios ofrecidos.">
+                                [OBJ-0001] 
+Informar sobre los servicios ofrecidos.</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+los datos de los productos en el catálogo de venta y en el catering.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0001" />
+Nombre</li>
+<li>
+<a name="DAT-0003" />
+Marca</li>
+<li>
+<a name="DAT-0002" />
+Precio</li>
+<li>
+<a name="DAT-0004" />
+Descripción</li>
+<li>
+<a name="DAT-0005" />
+Tipo de producto (<a href="#GLO-0006" title="Utensilio para fumar que consiste en un pequeño recipiente o cazoleta donde se quema tabaco picado, unido a un tubo terminado en una boquilla, por la que se aspira el humo">Cachimba</a>, <a href="#GLO-0010" title="Parte de la cachimba que se usa como conducto de aspiración del vapor de agua.">manguera</a>, cazoleta, carbones, <a href="#GLO-0015" title="Planta cuyas hojas, preparadas de una manera específica, se pueden fumar.">tabaco</a>, <a href="#GLO-0008" title="Parte de la cachimba que se usa como recipiente donde se deposita agua que actúa como filtrante para purificar el tabaco.">base</a> o accesorio)</li>
 </ul>
 </td>
 </tr>
@@ -3864,268 +4078,6 @@ Tipo de <a href="#GLO-0020" title="Precio inicial de un determinado servicio, se
 <li>
 <a name="DAT-0060" />
 Precio inicial</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
-<th align="left" valign="top">Medio</th>
-<th align="left" valign="top">Máximo</th>
-</tr>
-<tr>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
-<th align="left" valign="top">Medio</th>
-<th align="left" valign="top">Máximo</th>
-</tr>
-<tr>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="2">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="IRQ-0005" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">IRQ-0005</th>
-<th align="left" valign="top" width="100%" colspan="2">
-Información sobre las ventas</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top" colspan="2">1.0 
-			( 30/11/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">
-<li>
-<a href="#OBJ-0007" title="Gestión de la empresa">
-                                [OBJ-0007] 
-Gestión de la empresa</a>
-</li>
-<li>
-<a href="#OBJ-0008" title="Pedidos">
-                                [OBJ-0008] 
-Pedidos</a>
-</li>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td colspan="2">
-    El sistema deberá almacenar la información correspondiente a 
-<em>
-los pedidos realizados, ya sean de reparación o de venta.
-				</em>
-    En concreto:
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Datos específicos</th>
-<td colspan="2" align="left" valign="top">
-<ul>
-<li>
-<a name="DAT-0038" />
-Productos</li>
-<li>
-<a name="DAT-0039" />
-Cantidad</li>
-<li>
-<a name="DAT-0040" />
-Precio individual</li>
-<li>
-<a name="DAT-0041" />
-Precio total</li>
-<li>
-<a name="DAT-0042" />
-Cupón de descuento</li>
-<li>
-<a name="DAT-0043" />
-Fecha aproximada de recogida</li>
-<li>
-<a name="DAT-0052" />
-¿Cobrado?</li>
-<li>
-<a name="DAT-0051" />
-¿Entregado?</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
-<th align="left" valign="top">Medio</th>
-<th align="left" valign="top">Máximo</th>
-</tr>
-<tr>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
-<th align="left" valign="top">Medio</th>
-<th align="left" valign="top">Máximo</th>
-</tr>
-<tr>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="2">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="IRQ-0007" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">IRQ-0007</th>
-<th align="left" valign="top" width="100%" colspan="2">
-Información sobre las reparaciones</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top" colspan="2">1.0 
-			( 04/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">
-<li>
-<a href="#OBJ-0007" title="Gestión de la empresa">
-                                [OBJ-0007] 
-Gestión de la empresa</a>
-</li>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td colspan="2">
-    El sistema deberá almacenar la información correspondiente a 
-<em>
-<font color="red"><b>PD</b></font>.
-				</em>
-    En concreto:
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Datos específicos</th>
-<td colspan="2" align="left" valign="top">
-<ul>
-<li>
-<a name="DAT-0054" />
-Producto</li>
-<li>
-<a name="DAT-0055" />
-<a href="#GLO-0020" title="Precio inicial de un determinado servicio, según cual sea contratado.">Tarifa</a> a aplicar</li>
-<li>
-<a name="DAT-0056" />
-Precio final</li>
-<li>
-<a name="DAT-0057" />
-¿Cobrado?</li>
-<li>
-<a name="DAT-0058" />
-¿Entregado?</li>
 </ul>
 </td>
 </tr>
@@ -4448,265 +4400,14 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="IRQ-0010" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">IRQ-0010</th>
-<th align="left" valign="top" width="100%" colspan="2">
-Información sobre las fotos</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top" colspan="2">1.0 
-			( 08/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="2">
-<ul>
-<li>
-<a href="#STK-0002">
-Montaño Aguilera, Antonio Manuel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="2">
-<ul>
-<li>
-<a href="#STK-0005">
-Begines Ruiz, Belén</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">
-<li>
-<a href="#OBJ-0005" title="Fotogalería">
-                                [OBJ-0005] 
-Fotogalería</a>
-</li>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td colspan="2">
-    El sistema deberá almacenar la información correspondiente a 
-<em>
-las fotos que se mostrarán en la fotogalería de la aplicación..
-				</em>
-    En concreto:
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Datos específicos</th>
-<td colspan="2" align="left" valign="top">
-<ul>
-<li>
-<a name="DAT-0093" />
-Tipo de foto (Catering, reparación o producto).</li>
-<li>
-<a name="DAT-0094" />
-Título</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
-<th align="left" valign="top">Medio</th>
-<th align="left" valign="top">Máximo</th>
-</tr>
-<tr>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
-<th align="left" valign="top">Medio</th>
-<th align="left" valign="top">Máximo</th>
-</tr>
-<tr>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="2">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="IRQ-0011" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">IRQ-0011</th>
-<th align="left" valign="top" width="100%" colspan="2">
-Información sobre las normas</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top" colspan="2">1.0 
-			( 08/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="2">
-<ul>
-<li>
-<a href="#STK-0002">
-Montaño Aguilera, Antonio Manuel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="2">
-<li>
-<a href="#OBJ-0006" title="Política de contrato y normas">
-                                [OBJ-0006] 
-Política de contrato y normas</a>
-</li>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td colspan="2">
-    El sistema deberá almacenar la información correspondiente a 
-<em>
-las normas a seguir a la hora de contratar un determinado servicio.
-				</em>
-    En concreto:
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Datos específicos</th>
-<td colspan="2" align="left" valign="top">
-<ul>
-<li>
-<a name="DAT-0095" />
-Nombre de la norma</li>
-<li>
-<a name="DAT-0096" />
-Descripción de la norma.</li>
-<li>
-<a name="DAT-0097" />
-Tipo de norma</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
-<th align="left" valign="top">Medio</th>
-<th align="left" valign="top">Máximo</th>
-</tr>
-<tr>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
-<th align="left" valign="top">Medio</th>
-<th align="left" valign="top">Máximo</th>
-</tr>
-<tr>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-<td>
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="2">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="2">
-Ninguno</td>
-</tr>
-</table>
-<p />
 <a name="SEC-0035" />
 <h3 align="left">6.3.2 
-Requisitos de reglas de negocio del sistema</h3><a name="CRQ-0001" />
+Requisitos de reglas de negocio del sistema</h3><a name="CRQ-0005" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">CRQ-0001</th>
+<th align="left" valign="top">CRQ-0005</th>
 <th align="left" valign="top" width="100%">
-Reservas</th>
+Pedido</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
@@ -4741,7 +4442,7 @@ Begines Ruiz, José Manuel</a>
 <td align="left" valign="top">
 	La información almacenada por el sistema deberá satisfacer la siguiente restricción: 
 <em>
-No reservar día para tal <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a> si ese mismo día ya está ocupado por otro <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>.</em>
+No cerrar un pedido hasta que se haya recibido el pago, ya sea de un <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>, de una reparación o de una compra.</em>
 </td>
 </tr>
 <tr>
@@ -4817,6 +4518,154 @@ Begines Ruiz, José Manuel</a>
 	La información almacenada por el sistema deberá satisfacer la siguiente restricción: 
 <em>
 Sólo el encargado peuede registrar un <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="CRQ-0006" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">CRQ-0006</th>
+<th align="left" valign="top" width="100%">
+Reparación</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 06/12/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0004">
+Begines Ruiz, José Manuel</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+	La información almacenada por el sistema deberá satisfacer la siguiente restricción: 
+<em>
+No se puede modificar el estado de una reparación si el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> no acepta el presupuesto provisto.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="CRQ-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">CRQ-0001</th>
+<th align="left" valign="top" width="100%">
+Reservas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 06/12/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0004">
+Begines Ruiz, José Manuel</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+	La información almacenada por el sistema deberá satisfacer la siguiente restricción: 
+<em>
+No reservar día para tal <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a> si ese mismo día ya está ocupado por otro <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>.</em>
 </td>
 </tr>
 <tr>
@@ -4998,237 +4847,9 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="CRQ-0005" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">CRQ-0005</th>
-<th align="left" valign="top" width="100%">
-Pedido</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 06/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0004">
-Begines Ruiz, José Manuel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-	La información almacenada por el sistema deberá satisfacer la siguiente restricción: 
-<em>
-No cerrar un pedido hasta que se haya recibido el pago, ya sea de un <a href="#GLO-0019" title="Acontecimiento acordado previamente en el que se ofrecerán los servicios de catering de la empresa">evento</a>, de una reparación o de una compra.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="CRQ-0006" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">CRQ-0006</th>
-<th align="left" valign="top" width="100%">
-Reparación</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 06/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0004">
-Begines Ruiz, José Manuel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-	La información almacenada por el sistema deberá satisfacer la siguiente restricción: 
-<em>
-No se puede modificar el estado de una reparación si el <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> no acepta el presupuesto provisto.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
 <a name="SEC-0036" />
 <h3 align="left">6.3.3 
-Requisitos de conducta del sistema</h3><a name="FRQ-0001" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">FRQ-0001</th>
-<th align="left" valign="top" width="100%">
-Consultar servicios de catering</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 30/11/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0002">
-Montaño Aguilera, Antonio Manuel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0005">
-Begines Ruiz, Belén</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-    El sistema deberá 
-<em>
-permitir a los usuarios de tipo empleado poder consultar los servicios que han realizado y los servicios que deberán realizar. Para ello se ofrecerá una agenda o un calendario para facilitar la organización de estos servicios.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="FRQ-0002" />
+Requisitos de conducta del sistema</h3><a name="FRQ-0002" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
 <th align="left" valign="top">FRQ-0002</th>
@@ -5313,91 +4934,6 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="FRQ-0003" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">FRQ-0003</th>
-<th align="left" valign="top" width="100%">
-Descuentos</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 30/11/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0002">
-Montaño Aguilera, Antonio Manuel</a>
-<br />
-</li>
-<li>
-<a href="#STK-0003">
-Patón Gutiérrez, Miguel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0004">
-Begines Ruiz, José Manuel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-    El sistema deberá 
-<em>
-ofrecer a los clientes que ya hayan contratado un servicio o comprado un producto de cualquier tipo descuentos que se irán notificando en la aplicación, concretamente en el perfil de ese usuario.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
 <a name="FRQ-0004" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
@@ -5445,6 +4981,91 @@ Begines Ruiz, Belén</a>
     El sistema deberá 
 <em>
 ofrecer al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> un "carro de la compra", de manera que pueda hacer click en uno de los productos y éste se añada automáticamente a este carro. Una vez ahí se podrá modificar la cantidad de cada producto deseado o eliminarlo del carro.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="FRQ-0008" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0008</th>
+<th align="left" valign="top" width="100%">
+Catering</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 01/12/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Martínez Figueroa, Pablo</a>
+<br />
+</li>
+<li>
+<a href="#STK-0002">
+Montaño Aguilera, Antonio Manuel</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0005">
+Begines Ruiz, Belén</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir a los encargados añadir, modificar y eliminar distintos servicios de catering, que serán añadidos automáticamente a una agenda en la que se consultarán de manera organizada todos los eventos realizados y a realizar.</em>
 </td>
 </tr>
 <tr>
@@ -5568,17 +5189,221 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="FRQ-0006" />
+<a name="FRQ-0012" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">FRQ-0006</th>
+<th align="left" valign="top">FRQ-0012</th>
 <th align="left" valign="top" width="100%">
-Top ventas</th>
+Consultar fotos</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
 <td align="left" valign="top">1.0 
-			( 01/12/2017 )
+			( 05/01/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir al usuario consultar todas las fotos de la galería, las cuales se podrán maximizar para mejor visualización de las mismas, mostrando información de dichas fotos.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="FRQ-0011" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0011</th>
+<th align="left" valign="top" width="100%">
+Consultar normas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 03/01/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> consultar normas de uso y la política de la empresa sobre los distintos servicios que ofrece la empresa. </em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="FRQ-0010" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0010</th>
+<th align="left" valign="top" width="100%">
+Consultar productos</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 03/01/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+mostrar información completa sobre el producto correspondiente en una página distinta al catálogo.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="FRQ-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0001</th>
+<th align="left" valign="top" width="100%">
+Consultar servicios de catering</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 30/11/2017 )
         </td>
 </tr>
 <tr>
@@ -5588,6 +5413,91 @@ Top ventas</th>
 <li>
 <a href="#STK-0002">
 Montaño Aguilera, Antonio Manuel</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0005">
+Begines Ruiz, Belén</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir a los usuarios de tipo empleado poder consultar los servicios que han realizado y los servicios que deberán realizar. Para ello se ofrecerá una agenda o un calendario para facilitar la organización de estos servicios.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="FRQ-0003" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0003</th>
+<th align="left" valign="top" width="100%">
+Descuentos</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 30/11/2017 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0002">
+Montaño Aguilera, Antonio Manuel</a>
+<br />
+</li>
+<li>
+<a href="#STK-0003">
+Patón Gutiérrez, Miguel</a>
 <br />
 </li>
 </ul>
@@ -5614,7 +5524,7 @@ Begines Ruiz, José Manuel</a>
 <td align="left" valign="top">
     El sistema deberá 
 <em>
-ofrecer a los clientes un apartado en el que se muestren los productos más vendidos, ya sea en general o filtrándolo por el tipo de producto correspondiente.</em>
+ofrecer a los clientes que ya hayan contratado un servicio o comprado un producto de cualquier tipo descuentos que se irán notificando en la aplicación, concretamente en el perfil de ese usuario.</em>
 </td>
 </tr>
 <tr>
@@ -5733,91 +5643,6 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="FRQ-0008" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">FRQ-0008</th>
-<th align="left" valign="top" width="100%">
-Catering</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 01/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0001">
-Martínez Figueroa, Pablo</a>
-<br />
-</li>
-<li>
-<a href="#STK-0002">
-Montaño Aguilera, Antonio Manuel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0005">
-Begines Ruiz, Belén</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-    El sistema deberá 
-<em>
-permitir a los encargados añadir, modificar y eliminar distintos servicios de catering, que serán añadidos automáticamente a una agenda en la que se consultarán de manera organizada todos los eventos realizados y a realizar.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
 <a name="FRQ-0009" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
@@ -5898,29 +5723,41 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="FRQ-0010" />
+<a name="FRQ-0006" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
-<th align="left" valign="top">FRQ-0010</th>
+<th align="left" valign="top">FRQ-0006</th>
 <th align="left" valign="top" width="100%">
-Consultar productos</th>
+Top ventas</th>
 </tr>
 <tr>
 <th align="left" valign="top">Versión</th>
 <td align="left" valign="top">1.0 
-			( 03/01/2018 )
+			( 01/12/2017 )
         </td>
 </tr>
 <tr>
 <th align="left" valign="top">Autores</th>
 <td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
+<ul>
+<li>
+<a href="#STK-0002">
+Montaño Aguilera, Antonio Manuel</a>
+<br />
+</li>
+</ul>
 </td>
 </tr>
 <tr>
 <th align="left" valign="top">Fuentes</th>
 <td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
+<ul>
+<li>
+<a href="#STK-0004">
+Begines Ruiz, José Manuel</a>
+<br />
+</li>
+</ul>
 </td>
 </tr>
 <tr>
@@ -5932,75 +5769,7 @@ Consultar productos</th>
 <td align="left" valign="top">
     El sistema deberá 
 <em>
-mostrar información completa sobre el producto correspondiente en una página distinta al catálogo.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="FRQ-0011" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">FRQ-0011</th>
-<th align="left" valign="top" width="100%">
-Consultar normas</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 03/01/2018 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-    El sistema deberá 
-<em>
-permitir al <a href="#GLO-0017" title="Persona o entidad que solicita los servicios o realiza alguna transacción con la empresa.">cliente</a> consultar normas de uso y la política de la empresa sobre los distintos servicios que ofrece la empresa. </em>
+ofrecer a los clientes un apartado en el que se muestren los productos más vendidos, ya sea en general o filtrándolo por el tipo de producto correspondiente.</em>
 </td>
 </tr>
 <tr>
@@ -6152,7 +5921,7 @@ Montaño Aguilera, Antonio Manuel</a>
 <td align="left" valign="top">
     El sistema deberá 
 <em>
-recuperarse de un fallo del sistema que cause la caída del sistema en el menor tiempo posible.</em>
+recuperarse de un fallo que cause la caída del sistema en un máximo de seis horas.</em>
 </td>
 </tr>
 <tr>
@@ -6188,91 +5957,7 @@ Ninguno</td>
 <p />
 <a name="SEC-0039" />
 <h3 align="left">6.4.2 
-Requisitos de usabilidad del sistema</h3><a name="NFR-0003" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">NFR-0003</th>
-<th align="left" valign="top" width="100%">
-Interfaz atractiva</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 03/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0001">
-Martínez Figueroa, Pablo</a>
-<br />
-</li>
-<li>
-<a href="#STK-0002">
-Montaño Aguilera, Antonio Manuel</a>
-<br />
-</li>
-<li>
-<a href="#STK-0003">
-Patón Gutiérrez, Miguel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-    El sistema deberá 
-<em>
-presentar un aspecto atractivo y agradable, de manera que se facilite la comprensión al usuario.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
-<a name="NFR-0004" />
+Requisitos de usabilidad del sistema</h3><a name="NFR-0004" />
 <table border="1" width="100%">
 <tr bgcolor="#c8e0e0">
 <th align="left" valign="top">NFR-0004</th>
@@ -6317,7 +6002,7 @@ Patón Gutiérrez, Miguel</a>
 <td align="left" valign="top">
     El sistema deberá 
 <em>
-incorporar un menú en el que se pueda acceder rápidamente a cualquier parte de la aplicación con un simple "click".</em>
+incorporar un menú en el que se pueda acceder rápidamente a cualquier parte de la aplicación con un máximo de cuatro "clicks".</em>
 </td>
 </tr>
 <tr>
@@ -6397,7 +6082,7 @@ Begines Ruiz, Belén</a>
 <td align="left" valign="top">
     El sistema deberá 
 <em>
-incorporar un botón de ayuda que, al pulsarlo, muestre en pantalla cuál es la función de todo lo mostrado en pantalla en ese momento.</em>
+ofrecer ayuda al usuario, de manera que se muestre en pantalla información sobre los formularios a rellenar cuando se navegue por la aplicación web, sin saturar de información la interfaz.</em>
 </td>
 </tr>
 <tr>
@@ -6433,90 +6118,8 @@ Ninguno</td>
 <p />
 <a name="SEC-0040" />
 <h3 align="left">6.4.3 
-Requisitos de mantenibilidad del sistema</h3><a name="NFR-0006" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">NFR-0006</th>
-<th align="left" valign="top" width="100%">
-Facilitar el mantenimiento</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 03/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0001">
-Martínez Figueroa, Pablo</a>
-<br />
-</li>
-<li>
-<a href="#STK-0002">
-Montaño Aguilera, Antonio Manuel</a>
-<br />
-</li>
-<li>
-<a href="#STK-0003">
-Patón Gutiérrez, Miguel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-    El sistema deberá 
-<em>
-tener una estructura que permita corregir en cualquier momento y de forma rápida un error o una actualización del sistema.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
+Requisitos de mantenibilidad del sistema</h3><a name="PRG-0052" />
+<p>No se ha detectado ningún requisito de mantenibilidad para este sistema.</p>
 <a name="SEC-0041" />
 <h3 align="left">6.4.4 
 Requisitos de eficiencia del sistema</h3><a name="NFR-0007" />
@@ -6599,80 +6202,6 @@ Ninguno</td>
 </tr>
 </table>
 <p />
-<a name="NFR-0008" />
-<table border="1" width="100%">
-<tr bgcolor="#c8e0e0">
-<th align="left" valign="top">NFR-0008</th>
-<th align="left" valign="top" width="100%">
-Rapidez de respuesta</th>
-</tr>
-<tr>
-<th align="left" valign="top">Versión</th>
-<td align="left" valign="top">1.0 
-			( 03/12/2017 )
-        </td>
-</tr>
-<tr>
-<th align="left" valign="top">Autores</th>
-<td align="left" valign="top" colspan="1">
-<ul>
-<li>
-<a href="#STK-0003">
-Patón Gutiérrez, Miguel</a>
-<br />
-</li>
-</ul>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Fuentes</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>?</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Dependencias</th>
-<td align="left" valign="top" colspan="1">Ninguno</td>
-</tr>
-<tr>
-<th align="left" valign="top">Descripción</th>
-<td align="left" valign="top">
-    El sistema deberá 
-<em>
-tener un tiempo de respuesta máximo de 7 segundos para no prolongar en exceso las peticiones de los usuarios.</em>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Importancia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Urgencia</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estado</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Estabilidad</th>
-<td align="left" valign="top" colspan="1">
-<font color="red"><b>PD</b></font>
-</td>
-</tr>
-<tr>
-<th align="left" valign="top">Comentarios</th>
-<td align="left" valign="top" colspan="1">
-Ninguno</td>
-</tr>
-</table>
-<p />
 <a name="SEC-0042" />
 <h3 align="left">6.4.5 
 Requisitos de portabilidad del sistema</h3><a name="NFR-0009" />
@@ -6715,7 +6244,12 @@ Montaño Aguilera, Antonio Manuel</a>
 <td align="left" valign="top">
     El sistema deberá 
 <em>
-poder visualizarse en cada uno de los navegadores web principales usados en el ordenador (Google Chrome, Mozilla Firefox, Microsoft Edge, Opera, Safari).</em>
+poder visualizarse en cada uno de los navegadores web principales usados en el ordenador:
+<br /> - Chrome 18 y versiones posteriores.
+<br /> - Firefox 24 y versiones posteriores.
+<br /> - Safari 7 y versiones posteriores.
+<br /> - Microsoft Edge.
+<br /> - Opera 12 y posteriores.</em>
 </td>
 </tr>
 <tr>
@@ -6917,11 +6451,17 @@ Ninguno</td>
 <p />
 <a name="SEC-0044" />
 <h3 align="left">6.4.7 
-Otros requisitos no funcionales del sistema</h3><a name="SEC-0045" />
+Otros requisitos no funcionales del sistema</h3><a name="PRG-0053" />
+<p>No se ha detectado ningún otro requisito no funcional para este sistema.</p>
+<a name="SEC-0045" />
 <h2 align="left">6.5 
-Restricciones técnicas del sistema</h2><a name="SEC-0046" />
+Restricciones técnicas del sistema</h2><a name="PRG-0054" />
+<p>No se ha detectado ningún requisito técnico para este sistema.</p>
+<a name="SEC-0046" />
 <h2 align="left">6.6 
-Requisitos de integración del sistema</h2><a name="SEC-0047" />
+Requisitos de integración del sistema</h2><a name="PRG-0055" />
+<p>No se ha detectado ningún requisito de integración para este sistema.</p>
+<a name="SEC-0047" />
 <h2 align="left">6.7 
 Información sobre trazabilidad</h2><a name="TRM-0001" />
 <table border="1" width="100%">
